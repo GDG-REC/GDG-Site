@@ -6,7 +6,9 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    
     extend: {
+      screens: { 'sm': { 'max': '640px' } },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
