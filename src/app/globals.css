@@ -25,3 +25,56 @@ body {
     text-wrap: balance;
   }
 }
+
+/*houdini*/
+@property --blink-opacity {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 1;
+}
+
+/* #fallback @keyframes blink-animation {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}*/
+
+@keyframes blink-animation {
+  0%,
+  100% {
+    opacity: var(--blink-opacity, 1);
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes glow {
+  0% {
+      border-color: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+  }
+  25% {
+      border-color: rgba(0, 128, 255, 1);
+      box-shadow: 0 0 15px rgba(0, 128, 255, 0.5);
+  }
+  50% {
+      border-color: rgba(0, 255, 128, 1);
+      box-shadow: 0 0 15px rgba(0, 255, 128, 0.5);
+  }
+  75% {
+      border-color: rgba(255, 128, 0, 1);
+      box-shadow: 0 0 15px rgba(255, 128, 0, 0.5);
+  }
+  100% {
+      border-color: rgba(255, 0, 0, 1);
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  }
+}
+
+.glow-animation {
+  animation: glow 3s infinite alternate;
+}
